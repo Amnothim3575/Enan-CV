@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E'nan Shim'ei - Portfolio</title>
+    
+    <!-- JSON-LD Structured Data Script for Search Engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "E'nan Shim'ei",
+        "jobTitle": "Future Aerospace Engineer & Junior Frontend Developer",
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "Embry-Riddle Aeronautical University"
+        },
+        "knowsAbout": ["Aerospace Engineering", "Aviation", "Drone Mapping", "Frontend Development", "HTML", "CSS", "JavaScript"]
+      }
+    }
+    </script>
+
+    <!-- Embedded CSS Styling -->
+    <style>
+        /* --- Reset & Global Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #06170b; /* Dark Green Canvas Background */
+            color: #ffffff;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* --- Browser Frame Mockup --- */
+        .browser-mockup {
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: #0b2512; /* Deep Forest Green Website Background */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #143d1f;
+        }
+
+        .browser-chrome {
+            background-color: #041007;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #143d1f;
+        }
+
+        .browser-dots {
+            display: flex;
+            gap: 6px;
+            margin-right: 20px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .dot.red { background-color: #ff5f56; }
+        .dot.yellow { background-color: #ffbd2e; }
+        .dot.green { background-color: #27c93f; }
+
+        .browser-address {
+            background-color: #0b2512;
+            color: #8da493;
+            font-size: 0.85rem;
+            padding: 6px 20px;
+            border-radius: 6px;
+            flex-grow: 1;
+            border: 1px solid #194723;
+            max-width: 600px;
+        }
+
+        /* --- Website Hero Banner --- */
+        .hero {
+            background: linear-gradient(135deg, #041007 0%, #0d361a 100%);
+            padding: 45px 40px;
+            text-align: center;
+            border-bottom: 4px solid #b39243; /* Aviation Gold Accent */
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            font-weight: 800;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: #b39243;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        /* JavaScript Greeting Target Zone */
+        .dynamic-greeting {
+            font-size: 0.95rem;
+            color: #8da493;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .hero .tagline {
+            font-size: 1rem;
+            max-width: 750px;
+            margin: 0 auto;
+            color: #d1dfd5;
+            line-height: 1.6;
+        }
+
+        /* --- Main Portfolio Grid --- */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            padding: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+        }
+
+        /* --- Sidebar Styles --- */
+        .sidebar {
+            background-color: #041007;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #143d1f;
+            height: fit-content;
+        }
+
+        .sidebar-section {
+            margin-bottom: 25px;
+        }
+
+        .sidebar-section:last-child {
+            margin-bottom: 0;
+        }
+
+        /* --- Section Titles --- */
+        .section-title {
+            font-size: 1.05rem;
+            color: #b39243;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #1f5c2d;
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .sidebar p {
+            font-size: 0.9rem;
+            color: #cedcd1;
+            margin-bottom: 8px;
+        }
+
+        .sidebar strong {
+            color: #ffffff;
+        }
+
+        /* --- Skill Badges --- */
+        .badge-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .badge {
+            background-color: #144420;
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid #236c35;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        /* Active class triggered by JavaScript */
+        .badge.active-highlight {
+            background-color: #b39243 !important;
+            color: #041007 !important;
+            border-color: #d9b862 !important;
+            transform: scale(1.05);
+        }
+
+        /* --- Content Cards (CV Experience) --- */
+        .content-body {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .card {
+            background-color: #0d2e16;
+            border: 1px solid #194723;
+            border-radius: 8px;
+            padding: 22px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .card-subtitle {
+            font-size: 0.95rem;
+            color: #b39243;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .summary-text {
+            font-size: 0.95rem;
+            color: #cedcd1;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            font-size: 0.95rem;
+            color: #cedcd1;
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+
+        .author-sign-off {
+            text-align: right;
+            font-size: 0.95rem;
+            color: #b39243;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* --- Live Site Footer --- */
+        .site-footer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #5c7e65;
+            padding: 20px;
+            border-top: 1px solid #143d1f;
+            background-color: #041007;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Live Monitor Browser Screen Wrap -->
+    <div class="browser-mockup">
+        
+        <!-- Live Address Bar Emulator Top Pane -->
+        <div class="browser-chrome">
+            <div class="browser-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <div class="browser-address">https://enanshimel.dev/aerospace-kq-portfolio</div>
+        </div>
+
+        <!-- Dynamic Strategic Portfolio Header Hero -->
+        <header class="hero">
+            <h1>E'NAN SHIM'EI</h1>
+            <div class="subtitle">Future Aerospace Engineer & Pilot | Proposed Kenya Airways Intern</div>
+            
+            <!-- JavaScript greeting injects text here -->
+            <div id="greeting" class="dynamic-greeting">Welcome to my professional landing page</div>
+            
+            <p class="tagline">
+                A highly motivated 12-year-old International Baccalaureate (IB) Grade 7 student combining a lifetime passion for aviation engineering with practical software development, official KCAA drone pilot operations, and elite leadership records.
+            </p>
+        </header>
+
+        <!-- Portfolio Structural Split Columns Layer -->
+        <div class="grid">
+            
+            <!-- Left Data Core Panel -->
+            <aside class="sidebar">
+                
+                <div class="sidebar-section">
+                    <h2 class="section-title">Core Information</h2>
+                    <p><strong>Age:</strong> 12 Years Old</p>
+                    <p><strong>Education:</strong> IB Curriculum — Grade 7</p>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2 class="section-title">Aspirations</h2>
+                    <p><strong>Higher Ed:</strong> Embry-Riddle Aeronautical University</p>
+                    <p><strong>Global Programs:</strong> SpaceX & NASA Core Tracks</p>
+                    <p><strong>Ultimate Vision:</strong> Sustainable Aerospace Engineering & Youngest Aviation CEO</p>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2 class="section-title">Aviation Benchmarks</h2>
+                    <p style="font-weight: 700; color: #ffffff; margin-bottom: 2px;">Cessna Flight Deck Ops</p>
+                    <p style="font-size: 0.85rem; color: #b39243; font-weight: 600;">Age 9 | 1 Hour Flight Logged</p>
+                    <p style="font-size: 0.85rem; margin-bottom: 12px;">Entrusted by flight instructor to take full independent control of aircraft mechanics for 12 continuous minutes.</p>
+
+                    <p style="font-weight: 700; color: #ffffff; margin-bottom: 2px;">Certified Drone Pilot</p>
+                    <p style="font-size: 0.85rem; color: #b39243; font-weight: 600;">Age 10 | Licensed by KCAA</p>
+                    <p style="font-size: 0.85rem;">One of the youngest officially certified remote aircraft drone operators registered under Kenya Civil Aviation Authority rules.</p>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2 class="section-title">Technical Capabilities</h2>
+                    <p style="font-size: 0.75rem; color: #8da493; margin-bottom: 5px; font-style: italic;">Click badges to highlight:</p>
+                    <div class="badge-grid" id="badgeContainer">
+                        <span class="badge">KCAA Drone License</span>
+                        <span class="badge">Flight Control</span>
+                        <span class="badge">Drone Mapping</span>
+                        <span class="badge">HTML5 / CSS3</span>
+                        <span class="badge">Git / GitHub</span>
+                        <span class="badge">DJI Systems</span>
+                        <span class="badge">Aerospace Layouts</span>
+                        <span class="badge">Swarm Logic</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2 class="section-title">Athletic Profile</h2>
+                    <p><strong>Competitive Swimming Champion:</strong></p>
+                    <p style="font-size: 0.85rem;">Awarded <em>Best Boy</em> in the 11-12 Years Age Category. Highlights intense stamina, speed mechanics, and long-range focus metrics.</p>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2 class="section-title">Global Experience</h2>
+                    <p style="font-size: 0.85rem; line-height: 1.5;">
+                        Extensive strategic international travel across North America (Los Angeles, San Diego, Santa Barbara, Las Vegas, Utah, Arizona), Asia (Bangkok), Middle East (Dubai), and Continental Africa (Cape Town, Zanzibar).
+                    </p>
+                </div>
+
+            </aside>
+
+            <!-- Right Functional Experience Panel -->
+            <main class="content-body">
+                
+                <!-- Academic Box with precisely 150-word strategic project summary -->
+                <section class="card">
+                    <div class="card-title">International Baccalaureate Discipline & Research Profile</div>
+                    <div class="card-subtitle">Academic Standing & Enterprise Innovations</div>
+                    <div class="summary-text">
+                        Enrolled in the rigorous IB Grade 7 curriculum, I combine top academic discipline with over 30 leadership merits for outstanding community behavior. This structural foundation directly fuels my industrial-scale engineering frameworks, most notably seen in my authorship of Project Green_Skies—a comprehensive 20-chapter strategic fleet proposal valued at KES 5,000,000,000. This initiative outlines a 16-year blueprint for environmental restoration using 100 fully autonomous, electric, solar-augmented EcoAir M-450 "Kipanga" aircraft to deploy charcoal-encapsulated seed-balls across degraded water towers. By engineering decentralized flight operations in Kitui and Mombasa alongside specialized off-grid technician villages, the plan effectively bridges aviation metrics with environmental engineering. My academic drive balances this heavy structural design work with competitive swimming titles, building the multi-role execution focus required to master future flight system architectures, manage complex data configurations, and safely advance commercial utility aviation ecosystems.
+                    </div>
+                    <div class="author-sign-off">— E’nan Shim’ei</div>
+                </section>
+
+                <h2 class="section-title" style="margin-bottom: 0;">Industrial Tech Experience</h2>
+
+                <div class="card">
+                    <div class="card-title">Drone Mapping & Media Operator</div>
+                    <div class="card-subtitle">Boreka Group — 2026 Portfolio Track</div>
+                    <ul>
+                        <li>Conducted tactical precision aerial drone mapping utilizing a DJI Mini drone for the NCBA Forest environmental project.</li>
+                        <li>Deployed and managed advanced high-altitude aerial media arrays for the high-profile World Environment Day 2026 corporate event held at Kamwaki.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Junior Frontend Developer & Designer</div>
+                    <div class="card-subtitle">Boreka Group — Active Track</div>
+                    <ul>
+                        <li>Actively styles, codes, and maintains dynamic responsive user interfaces and websites utilizing clean HTML and CSS standards.</li>
+                        <li>Manages remote file pipelines, system deployments, software version control systems, and central code repositories via GitHub.</li>
+                    </ul>
+                </div>
+
+            </main>
+
+        </div>
+
+        <!-- Live Website Footer Frame -->
+        <footer class="site-footer">
+            <p>© 2026 | Portfolio Platform Specially Configured for Application to Kenya Airways (KQ)</p>
+        </footer>
+
+    </div>
+
+    <!-- Embedded JavaScript Logic -->
+    <script>
+        // 1. Dynamic greeting function based on actual time
+        document.addEventListener('DOMContentLoaded', function() {
+            const greetingElement = document.getElementById('greeting');
+            const hour = new Date().getHours();
+            let greetingMessage = "Welcome to my aerospace portfolio";
+
+            if (hour < 12) {
+                greetingMessage = "⚡ Good morning! Welcome to my aerospace portfolio";
+            } else if (hour < 18) {
+                greetingMessage = "⚡ Good afternoon! Welcome to my aerospace portfolio";
+            } else {
+                greetingMessage = "⚡ Good evening! Welcome to my aerospace portfolio";
+            }
+            
+            greetingElement.textContent = greetingMessage;
+        });
+
+        // 2. Interactive skill badge selector click toggle
+        const container = document.getElementById('badgeContainer');
+        container.addEventListener('click', function(e) {
+            if(e.target.classList.contains('badge')) {
+                e.target.classList.toggle('active-highlight');
+            }
+        });
+    </script>
+</body>
+</html>
